@@ -1,5 +1,6 @@
 import React, {createContext, useReducer} from 'react';
 import {TransactionReducer} from './transactionReducer.js';
+// import {Header} from './Header.js';
 let transaction = [
     { amount: 500, desc: "Cash" },
     { amount: -40, desc: "Chocolate" },
@@ -20,9 +21,17 @@ export const TransactionProvider=({children})=>{
             }
         })
     }
+// Delete function
+    function Deltransaction(key) {
+        dispatch({
+            type:"DEL_TRANSACTION",
+            payload:key
+        })
+    }
         return ( <transactionContext.Provider value={{
             transaction: state,
-            Addtransaction
+            Addtransaction,
+            Deltransaction
          } }>
                 {children}
         </transactionContext.Provider>)

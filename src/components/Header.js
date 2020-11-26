@@ -24,6 +24,13 @@ export const Header = () => {
     })
   }
 
+// delete function
+
+const handleDelete = (ind,event)=>{
+    event.preventDefault();
+    ind=[];
+}
+
   const totalIncome =()=>{
       let income=0;
       for(var i=0; i < transaction.length; i++){
@@ -59,7 +66,9 @@ const totalExpense =()=>{
 <h3>History</h3>
 <hr/>
 
-<ul className="history-list">
+
+
+<button className="btn-delete" onClick={handleDelete}></button><ul className="history-list">
 
 {transaction.map((transObj, ind) => {
   return( <li key={ind}>
